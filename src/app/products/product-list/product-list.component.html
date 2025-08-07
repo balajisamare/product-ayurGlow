@@ -1,0 +1,25 @@
+<div class="home-container">
+  <div class="product-details">
+    <img src="assets/img/ayurGlow.png" alt=" 🌿 AyurGlow Drink Powder" class="product-image" />
+
+    <div class="product-info">
+      <h1>AyurGlow Anti-Aging drink powder</h1>
+      <p>
+        <strong>AyurGlow</strong> is a 100% herbal, anti-aging drink powder that revitalizes your skin,
+        reduces wrinkles, and gives you a natural youthful glow. Formulated with Ayurvedic ingredients,
+        it's perfect for all skin types. 🌿✨
+      </p>
+      <button mat-raised-button color="primary" [routerLink]="['/cart']">
+        Shop Now
+      </button>
+    </div>
+  </div>
+  <!-- <div *ngFor="let product of products" class="product-card">
+  <img [src]="product.image" alt="{{ product.name }}" class="product-image"/>
+  <h3>{{ product.name }}</h3>
+  <p>₹{{ product.price }}</p>
+  <button mat-raised-button color="primary" (click)="addToCart(product)">
+    Add to Cart
+  </button>
+</div> -->
+</div>
