@@ -1,6 +1,6 @@
 
 export default {
-  basePath: '/',
+  basePath: '/product-ayurGlow',
   supportedLocales: {
   "en-US": ""
 },

@@ -2,29 +2,29 @@
 export default {
   bootstrap: () => import('./main.server.mjs').then(m => m.default),
   inlineCriticalCss: true,
-  baseHref: '/',
+  baseHref: '/product-ayurGlow/',
   locale: undefined,
   routes: [
   {
     "renderMode": 2,
-    "route": "/"
+    "route": "/product-ayurGlow"
   },
   {
     "renderMode": 2,
-    "route": "/cart"
+    "route": "/product-ayurGlow/cart"
   },
   {
     "renderMode": 2,
-    "route": "/checkout"
+    "route": "/product-ayurGlow/checkout"
   }
 ],
   entryPointToBrowserMapping: undefined,
   assets: {
-    'index.csr.html': {size: 23562, hash: '1933c4b3e61aa19bef39ec4451fc19b856aa6296802ddc3e3650bc6498d841ad', text: () => import('./assets-chunks/index_csr_html.mjs').then(m => m.default)},
-    'index.server.html': {size: 17136, hash: '171ebb494d7593f072b40bce8653897a933ad1d0df4956bfbd1c9dbf2c640be4', text: () => import('./assets-chunks/index_server_html.mjs').then(m => m.default)},
-    'index.html': {size: 53762, hash: '7e9e6b96e63755f023bdc4a06a56001fd63b23266168cd229101c9eef55e3298', text: () => import('./assets-chunks/index_html.mjs').then(m => m.default)},
-    'checkout/index.html': {size: 51338, hash: 'fced3e2a3f3f9eb2e5f1fd55c1afbb532d39463c7f38aa3c40be909c0fb5a81d', text: () => import('./assets-chunks/checkout_index_html.mjs').then(m => m.default)},
-    'cart/index.html': {size: 51562, hash: '538d3f6d53d38427e193c74e9b220876929b9e606b2e4cc5ce5c3700b10b54f4', text: () => import('./assets-chunks/cart_index_html.mjs').then(m => m.default)},
+    'index.csr.html': {size: 23579, hash: '401c61a860109d02de9f39d7a2190bedd20ec76f7d977d0ac0090f105523c624', text: () => import('./assets-chunks/index_csr_html.mjs').then(m => m.default)},
+    'index.server.html': {size: 17153, hash: '1069d09345d9c21a4426505bf8e73259efd377d23e6758c97c61cf31f78cb946', text: () => import('./assets-chunks/index_server_html.mjs').then(m => m.default)},
+    'cart/index.html': {size: 51579, hash: 'c180e2eec33cba567b593b83b05d9a533e8a8be1bae4ab47db07725dd964be44', text: () => import('./assets-chunks/cart_index_html.mjs').then(m => m.default)},
+    'checkout/index.html': {size: 51355, hash: '184ee8f3e10d54b4a2c96574aea2b999c1c1197e486cb48a3d89f0df78b13a6a', text: () => import('./assets-chunks/checkout_index_html.mjs').then(m => m.default)},
+    'index.html': {size: 53779, hash: 'd02cc4b8a2a210265f6fad0dd8cc875476e112c5174c6e2efe16b4d47b36e066', text: () => import('./assets-chunks/index_html.mjs').then(m => m.default)},
     'styles-WNKDDIZJ.css': {size: 6979, hash: 'AsSxQJi0uyE', text: () => import('./assets-chunks/styles-WNKDDIZJ_css.mjs').then(m => m.default)}
   },
 };
