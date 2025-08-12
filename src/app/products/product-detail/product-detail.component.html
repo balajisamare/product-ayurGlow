@@ -1,1 +1,40 @@
-<p>product-detail works!</p>
+<mat-card *ngIf="product" class="product-card">
+  <mat-card-header>
+    <mat-card-title>{{ product.name }}</mat-card-title>
+  </mat-card-header>
+
+  <div class="product-body">
+    <!-- Left block: Image + Price -->
+    <div class="left-block">
+      <img mat-card-image [src]="product.image" alt="{{ product.name }}" />
+     <p class="price"><strong>Price:</strong> {{ product.price | currency:'INR':'symbol' }}</p>
+    </div>
+
+    <!-- Right block: Ingredients table -->
+    <mat-card-content>
+      <div class="ingredients-section">
+      <h3>Ingredients</h3>
+      <table mat-table [dataSource]="product.ingredients" class="mat-elevation-z8">
+        <!-- Columns definitions here -->
+        <ng-container matColumnDef="name">
+          <th mat-header-cell *matHeaderCellDef>Ingredient</th>
+          <td mat-cell *matCellDef="let ing">{{ ing.name }}</td>
+        </ng-container>
+
+        <ng-container matColumnDef="quantity">
+          <th mat-header-cell *matHeaderCellDef>Quantity (per 100g)</th>
+          <td mat-cell *matCellDef="let ing">{{ ing.quantity }}</td>
+        </ng-container>
+
+        <ng-container matColumnDef="benefits">
+          <th mat-header-cell *matHeaderCellDef>Benefits</th>
+          <td mat-cell *matCellDef="let ing">{{ ing.benefits }}</td>
+        </ng-container>
+
+        <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+        <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+      </table>
+      </div>
+    </mat-card-content>
+    </div>
+</mat-card>
