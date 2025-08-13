@@ -7,34 +7,70 @@
     <!-- Left block: Image + Price -->
     <div class="left-block">
       <img mat-card-image [src]="product.image" alt="{{ product.name }}" />
-     <p class="price"><strong>Price:</strong> {{ product.price | currency:'INR':'symbol' }}</p>
+      <p class="price">
+        <strong>Price:</strong> {{ product.price | currency:'INR':'symbol' }}
+      </p>
     </div>
 
-    <!-- Right block: Ingredients table -->
+    <!-- Right block -->
     <mat-card-content>
-      <div class="ingredients-section">
-      <h3>Ingredients</h3>
-      <table mat-table [dataSource]="product.ingredients" class="mat-elevation-z8">
-        <!-- Columns definitions here -->
-        <ng-container matColumnDef="name">
-          <th mat-header-cell *matHeaderCellDef>Ingredient</th>
-          <td mat-cell *matCellDef="let ing">{{ ing.name }}</td>
-        </ng-container>
 
-        <ng-container matColumnDef="quantity">
-          <th mat-header-cell *matHeaderCellDef>Quantity (per 100g)</th>
-          <td mat-cell *matCellDef="let ing">{{ ing.quantity }}</td>
-        </ng-container>
-
-        <ng-container matColumnDef="benefits">
-          <th mat-header-cell *matHeaderCellDef>Benefits</th>
-          <td mat-cell *matCellDef="let ing">{{ ing.benefits }}</td>
-        </ng-container>
-
-        <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
-        <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
-      </table>
+      <!-- Ingredients -->
+      <div *ngIf="product.ingredients?.length">
+        <h3>Ingredients</h3>
+        <ul>
+          <li *ngFor="let ing of product.ingredients">
+            <strong>{{ ing.name }}</strong> - {{ ing.quantity }}  
+            <span *ngIf="ing.benefits">({{ ing.benefits }})</span>
+          </li>
+        </ul>
       </div>
+
+      <!-- Nutritional Info -->
+      <div *ngIf="product.nutritionalInfo?.length">
+        <h3>Nutritional Information (Per 5g serving)</h3>
+        <table>
+          <tr>
+            <th>Nutrient</th>
+            <th>Value</th>
+          </tr>
+          <tr *ngFor="let nut of product.nutritionalInfo">
+            <td>{{ nut.nutrient }}</td>
+            <td>{{ nut.value }}</td>
+          </tr>
+        </table>
+      </div>
+
+      <!-- Usage Instructions -->
+      <div *ngIf="product.usage">
+        <h3>Usage Instructions</h3>
+        <p>{{ product.usage }}</p>
+      </div>
+
+      <!-- Storage -->
+      <div *ngIf="product.storage">
+        <h3>Storage</h3>
+        <p>{{ product.storage }}</p>
+      </div>
+
+      <!-- Manufactured & Marketed By -->
+      <div *ngIf="product.manufacturer">
+        <h3>Manufactured & Marketed By</h3>
+        <p>{{ product.manufacturer.name }}</p>
+        <p>{{ product.manufacturer.address }}</p>
+      </div>
+
+      <!-- Customer Care -->
+      <div *ngIf="product.customerCare">
+        <h3>Customer Care:</h3>
+        <p>{{ product.customerCare }}</p>
+      </div>
+
+      <!-- FSSAI -->
+      <div *ngIf="product.fssai">
+        <strong>FSSAI Lic No:</strong> {{ product.fssai }}
+      </div>
+
     </mat-card-content>
-    </div>
+  </div>
 </mat-card>
